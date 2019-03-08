@@ -1,0 +1,17 @@
+body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1, #startPage {
+    display: flex;
+    justify-content: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    align-items: center;
+}
