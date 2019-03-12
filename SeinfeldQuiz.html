@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<htm lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Seinfeld Quiz App">
@@ -8,23 +8,24 @@
     <meta name="author" content="Jeremy Le-Ogier">    
 
     <link rel="stylesheet" type="text/css" href="design.css"></link>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"></script>    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"></link>    
 </head>
 
 <body>
-    <h1>Seinfeld Quiz</h1>
+    <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Seinfeld_English_logo.png">
+    <h1>Quiz</h1>
         <section class="Quiz">
             <h2 id="startPage">Think you know Seinfeld?</h2>
 
-        <div class="buttons">
-            <button id="startButton">Giddy Up!</button>
-        </div>
+            <div class="buttons">
+                <button id="startButton">Prove It!</button>
+            </div>
         </section>
 
 
-<!--jQuery CDN-->
-<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    
-<script src="SeinfeldQuiz.js" > </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>   
+<script src="data.js"></script> 
+<script src="SeinfeldQuiz.js"></script>
 </body>
 
 </html>
