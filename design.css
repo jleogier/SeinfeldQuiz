@@ -2,7 +2,7 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    
+    flex: 0 1 auto;
 }
 
 h1, #startPage, .answer {
@@ -31,8 +31,8 @@ label {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 }
-
 
 .Quiz {
     display: flex;
@@ -46,30 +46,49 @@ span {
     align-items: center;
 }
 
-#questionDisplay {
+#questionDisplay, #scoreDisplay, #trackerDisp {
     display: flex;
     justify-content: center;
 }
 
-#trackerDisp {
-    display: flex;
-    justify-content: center;
-}
-
-#scoreDisplay {
-    display: flex;
-    justify-content: center;
-}
-
-
-#submitButton {
+#restartButton , #submitButton, #nextQ  {
     display: flex;
     align-content: center;
+    justify-content: center;
+    width: 100%;
+    border-style: solid;
+}
+
+#startButton {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+#rightAnsGif, #wrongAnsGif, #beatQuizGif, #lostQuizGif, #startButton {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    object-fit: contain; 
+    max-width: 100%;
+    width: 100%;
+}
+
+#restartButton {
+    width: 100%;
+
 }
 
 
-@media screen and (max-width: 767px) {
-
-
+@media screen and (min-width: 768px) {
+    #rightAnsGif, #wrongAnsGif, #beatQuizGif, #lostQuizGif, #startButton, #nextQ {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: center;
+        object-fit: contain; 
+        max-width: 100%;
+        width: 100%;
+    }
 
 }
