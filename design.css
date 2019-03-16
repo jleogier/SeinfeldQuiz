@@ -65,7 +65,7 @@ span {
     justify-content: center;
 }
 
-#rightAnsGif, #wrongAnsGif, #beatQuizGif, #lostQuizGif, #startButton {
+#rightAnsGif, #wrongAnsGif, #beatQuizGif, #lostQuizGif, #startButton, #nextQ {
     display: flex;
     align-content: center;
     justify-content: center;
@@ -74,13 +74,15 @@ span {
     width: 100%;
 }
 
-#restartButton {
-    width: 100%;
+@media screen and (max-width: 767px) {
+    body {
+        object-fit: contain; 
+    }
 
-}
+    #rightAnsGif, #wrongAnsGif, #beatQuizGif, #lostQuizGif, #nextQ {
+        flex: 1 2 0;
+    }
 
-
-@media screen and (min-width: 768px) {
     #rightAnsGif, #wrongAnsGif, #beatQuizGif, #lostQuizGif, #startButton, #nextQ {
         display: flex;
         flex-direction: row;
@@ -89,6 +91,18 @@ span {
         object-fit: contain; 
         max-width: 100%;
         width: 100%;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+    #nextQ  {
+        font-size: large;
+    }
+
+    #rightAnsGif, #wrongAnsGif, #beatQuizGif, #lostQuizGif, #nextQ {
+        display: flex;
+        flex-direction: row;
     }
 
 }
