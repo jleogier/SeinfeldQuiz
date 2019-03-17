@@ -5,7 +5,7 @@ body {
     flex: 0 1 auto;
 }
 
-h1, #startPage, .answer {
+h1, #startPage, .answer, h4 {
     display: flex;
     justify-content: center;
 }
@@ -21,10 +21,6 @@ h1, #startPage, .answer {
     max-width:100%;
     height:auto;
     object-fit: contain; 
-}
-
-button {
-    border-style: solid;
 }
 
 label {
@@ -51,12 +47,11 @@ span {
     justify-content: center;
 }
 
-#restartButton , #submitButton, #nextQ  {
+#restartButton , #submitButton, #nextQ, #scoreDisplay  {
     display: flex;
     align-content: center;
     justify-content: center;
     width: 100%;
-    border-style: solid;
 }
 
 #startButton {
@@ -77,11 +72,7 @@ span {
 @media screen and (max-width: 767px) {
     body {
         object-fit: contain; 
-    }
-
-    #rightAnsGif, #wrongAnsGif, #beatQuizGif, #lostQuizGif, #nextQ {
-        flex: 1 2 0;
-    }
+    }  
 
     #rightAnsGif, #wrongAnsGif, #beatQuizGif, #lostQuizGif, #startButton, #nextQ {
         display: flex;
