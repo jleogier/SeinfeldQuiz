@@ -3,6 +3,7 @@ body {
     justify-content: center;
     flex-direction: column;
     flex: 0 1 auto;
+    max-height: 100%;
 }
 
 h1, #startPage, .answer, h4 {
@@ -10,17 +11,35 @@ h1, #startPage, .answer, h4 {
     justify-content: center;
 }
 
-.buttons {
+button {
     display: flex;
     justify-content: center;
     padding: 1em;
     align-items: center;
+    cursor: pointer;
+}
+
+.answer{
+    cursor: pointer;
+}
+
+fieldset {
+    border: none;
 }
 
 #logo {
     max-width:100%;
     height:auto;
     object-fit: contain; 
+}
+
+#nextQ, #submitButton, #restartButton  {
+    background-color: #FBD71F;
+    color: #E30922;
+}
+
+#submitButton, #restartButton, #nextQ {
+    font-weight: 800;
 }
 
 label {
@@ -47,7 +66,11 @@ span {
     justify-content: center;
 }
 
-#restartButton , #submitButton, #nextQ, #scoreDisplay  {
+#questionDisplay {
+    margin-bottom: 1em;
+}
+
+#restartButton , #submitButton, #scoreDisplay, .beatLostQuizgifs {
     display: flex;
     align-content: center;
     justify-content: center;
@@ -60,7 +83,7 @@ span {
     justify-content: center;
 }
 
-#rightAnsGif, #wrongAnsGif, #beatQuizGif, #lostQuizGif, #startButton, #nextQ {
+#beatQuizGif, #lostQuizGif, #startButton {
     display: flex;
     align-content: center;
     justify-content: center;
@@ -74,7 +97,7 @@ span {
         object-fit: contain; 
     }  
 
-    #rightAnsGif, #wrongAnsGif, #beatQuizGif, #lostQuizGif, #startButton, #nextQ {
+     #beatQuizGif, #lostQuizGif, #startButton, .rightWrongGifs {
         display: flex;
         flex-direction: row;
         align-content: center;
@@ -84,16 +107,49 @@ span {
         width: 100%;
     }
 
+    .gifNextcontainer, .gifRestartContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        object-fit: contain; 
+        max-height: 100%;
+    }
+
+    #nextQ, #restartButton  {
+        width: 100%;
+        align-content: center;
+        height: 10em;
+    }
 }
 
 @media screen and (min-width: 768px) {
-    #nextQ  {
-        font-size: large;
+
+    #startButton, #logo {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        max-width: 100%;
+        width: 100%;
+        height: 15em;
+        object-fit: contain; 
+        margin: 1em;
     }
 
-    #rightAnsGif, #wrongAnsGif, #beatQuizGif, #lostQuizGif, #nextQ {
+    #nextQ, #restartButton  {
+        width: 50%;
+        align-content: flex-end;
+    }
+
+
+    .gifNextcontainer, .gifRestartContainer {
         display: flex;
         flex-direction: row;
+    }
+
+
+    .rightWrongGifs, .beatLostQuizgifs {
+        align-content: flex-start;
+        width: 50%
     }
 
 }

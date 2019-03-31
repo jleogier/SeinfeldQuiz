@@ -19,8 +19,8 @@ $(function() {
                         let choice = qnASet.ansChoice[i];
                         
                         output += 
-                                    `<label>
-                                        <input class="answer" type="radio" name="option"></input>
+                                    `<label class="answer">
+                                        <input class="answer" type="radio" name="option" required></input>
                                         <span>${choice}</span>
                                     </label>`                        
                     }
@@ -30,15 +30,15 @@ $(function() {
         // Displays the Quiz question, progression, and score
             return `
                     <section role="countainsQuiz" class="Quiz">        
-                        <h3 role="showsQuestion" id='questionDisplay'>${qnASet.question}</h3>        
-                            <h4 role="tracksQuizProgress" id="trackerDisp">Quiz question tracker: ${questionNum} / 5</h4>
-                                <form role="answerSetDisplay">
+                        <h4 role="tracksQuizProgress" id="trackerDisp">Quiz question tracker: ${questionNum} / 5</h4>
+                            <form role="answerSetDisplay">
+                                <legend role="showsQuestion" id='questionDisplay'>${qnASet.question}</legend>
                                     <fieldset>
                                         ${answersDisplay()}
                                     </fieldset>
-                                    <h4 role="showScore" id="scoreDisplay">Your Score: ${score} / 5</h4>
-                                    <button id="submitButton" type="submit">Giddy Up!</button>
-                                </form>               
+                                <h4 role="showScore" id="scoreDisplay">Your Score: ${score} / 5</h4>
+                                <button id="submitButton" type="submit">Giddy Up!</button>
+                            </form>               
                     </section>
                     `;
         }; 
@@ -69,10 +69,12 @@ $(function() {
 
             let correctMessage = `
                                 <section role="countainsQuiz" class="Quiz">
-                                    <h4 role="indicatesCorrectAnswer" id="scoreDisplay">That's Correct!<br>Your Score: ${score} / 5</h4>
-                                    <iframe id="rightAnsGif" alt="gif of Jerry give a thumbs up in approval of answer" src="https://giphy.com/embed/Xhxd8T0og4oKs" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                                <h4 role="indicatesCorrectAnswer" id="scoreDisplay">That's Correct!<br>Your Score: ${score} / 5</h4>
+                                <div class="gifNextcontainer">
+                                    <iframe class="rightWrongGifs" id="rightAnsGif" alt="gif of Jerry give a thumbs up in approval of answer" src="https://giphy.com/embed/Xhxd8T0og4oKs" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                                    <button role="button" aria-pressed="false" id="nextQ">Next</button>                       
+                                </div>
                                 </section> 
-                                <button role="button" aria-pressed="false" id="nextQ">Next</button>                       
                                 `
 
             let output = [$('.Quiz').html(correctMessage), score, console.log('The score is: ' + score)];
@@ -84,12 +86,14 @@ $(function() {
                 console.log('The user selected the WRONG answer.');
                 
                 let wrongMessage = `
-                                    <section role="countainsQuiz" class="Quiz">
-                                        <h4 role="indicatesWrongAnswer id="scoreDisplay">Wrong answer!<br>Your Score: ${score} / 5 <br>The correct answer is: ${rightAns}</h4>
-                                        <iframe id="wrongAnsGif" alt="Kramer showing an arrow going down" src="https://giphy.com/embed/W86SkcDSRlnwY" width="244" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-                                    </section> 
+                                <section role="countainsQuiz" class="Quiz">
+                                <h4 role="indicatesWrongAnswer id="scoreDisplay">Wrong answer!<br>Your Score: ${score} / 5 <br>The correct answer is: ${rightAns}</h4>
+                                <div class="gifNextcontainer">                                                                                                            
+                                    <iframe class="rightWrongGifs" id="wrongAnsGif" alt="Kramer showing an arrow going down" src="https://giphy.com/embed/W86SkcDSRlnwY" width="244" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
                                     <button role="button" aria-pressed="false" id="nextQ">Next</button>                       
-                                    `
+                                </div>
+                                </section> 
+                                `
 
                 let output = [$('.Quiz').html(wrongMessage), score, console.log('The score is: ' + score)];
 
@@ -131,10 +135,12 @@ $(function() {
             
             let beatQuizMessage =                                         
                                 `<section role="countainsQuiz" class="Quiz">
-                                        <h4 role="showScore" id="scoreDisplay">Your Score: ${score} / 5</h4>
+                                    <h4 role="showScore" id="scoreDisplay">Your Score: ${score} / 5</h4>
                                         <h1 role="quizWinningMessage" id="beatQuiz">Congratulations! You know your Seinfeld!</h1>
+                                        <div class="gifRestartContainer">
                                             <a alt="gif showing cast jumping up in excitement" id="beatQuizGif" href="http://reactiongifs.com/?p=13217"><img src="http://www.reactiongifs.com/r/2013/07/happy-dance-.gif"></a>
-                                        <button role="button" aria-pressed="false" id="restartButton">Restart the Quiz!</button>                       
+                                            <button role="button" aria-pressed="false" id="restartButton">Restart the Quiz!</button>                       
+                                        </div>
                                 </section>                                
                                 `
 
@@ -145,9 +151,11 @@ $(function() {
             let lostQuizMessage = 
                                 ` <section role="countainsQuiz" class="Quiz">
                                     <h4 role="showScore" id="scoreDisplay">Your Score: ${score} / 5</h4>
-                                    <h1 role="quizLosingMessage" id="beatQuiz">You didn't pass. Try again!</h1>
-                                        <iframe alt="gif showing Jerry eating popcorn with a message that says 'thats a shame'." id="lostQuizGif" src="https://giphy.com/embed/PEtL0mS2JXMBi" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-                                    <button role="button" aria-pressed="false" id="restartButton">Restart the Quiz!</button>                       
+                                        <h1 role="quizLosingMessage" id="beatQuiz">You didn't pass. Try again!</h1>
+                                        <div class="gifRestartContainer">
+                                            <iframe alt="gif showing Jerry eating popcorn with a message that says 'thats a shame'." id="lostQuizGif" src="https://giphy.com/embed/PEtL0mS2JXMBi" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                                            <button role="button" aria-pressed="false" id="restartButton">Restart the Quiz!</button>                       
+                                        </div>
                                 </section>
                                 `
                 return $('.Quiz').html(lostQuizMessage);
